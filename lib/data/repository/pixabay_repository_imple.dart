@@ -4,7 +4,7 @@ import 'package:clean/data/mapper/pixabay_mapper.dart';
 import 'package:clean/data/model/photo.dart';
 import 'package:clean/data/repository/photo_repository.dart';
 
-class PixbayResultRepository implements PhotoRepository {
+class PixbayResultRepositoryImple implements PhotoRepository {
   final PixabayApi _api = PixabayApi();
 
   @override
