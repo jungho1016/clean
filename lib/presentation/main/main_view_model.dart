@@ -1,12 +1,12 @@
+import 'package:clean/domain/use_case/get_top_five_most_viewed_images_use_case.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/repository/photo_repository.dart';
 import 'main_state.dart';
 
 class MainViewModel with ChangeNotifier {
-  final PhotoRepository _repository;
-
-  MainViewModel(this._repository);
+  final GetTopFiveMostViewedImagesUseCase _getTopFiveMostViewedImagesUseCase;
+  MainViewModel(this._getTopFiveMostViewedImagesUseCase);
 
   MainState _state = const MainState();
 
@@ -16,12 +16,9 @@ class MainViewModel with ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
-    final photos = await _repository.getPhoto(query);
-    photos.sort((a, b) => -a.views.compareTo(b.views));
-
     _state = state.copyWith(
       isLoading: false,
-      photos: photos.take(5).toList(),
+      photos: await _getTopFiveMostViewedImagesUseCase(query),
     );
     notifyListeners();
   }

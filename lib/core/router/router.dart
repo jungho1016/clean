@@ -1,5 +1,6 @@
 import 'package:clean/data/repository/pixabay_repository_imple.dart';
 import 'package:clean/domain/model/photo.dart';
+import 'package:clean/domain/use_case/get_top_five_most_viewed_images_use_case.dart';
 import 'package:clean/presentation/detail/detail_screen.dart';
 import 'package:clean/presentation/main/main_view_model.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,8 @@ final router = GoRouter(
         path: '/main',
         builder: (context, state) {
           return ChangeNotifierProvider(
-              create: (_) => MainViewModel(PixbayResultRepositoryImple()),
+              create: (_) => MainViewModel(GetTopFiveMostViewedImagesUseCase(
+                  PixbayResultRepositoryImple())),
               child: const MainScreen());
         },
         routes: [
