@@ -1,4 +1,4 @@
-import 'package:clean/data/model/photo.dart';
+import 'package:clean/domain/model/photo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
