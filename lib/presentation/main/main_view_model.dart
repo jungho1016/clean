@@ -1,7 +1,5 @@
 import 'package:clean/domain/use_case/get_top_five_most_viewed_images_use_case.dart';
 import 'package:flutter/material.dart';
-
-import '../../domain/repository/photo_repository.dart';
 import 'main_state.dart';
 
 class MainViewModel with ChangeNotifier {
@@ -18,7 +16,7 @@ class MainViewModel with ChangeNotifier {
 
     _state = state.copyWith(
       isLoading: false,
-      photos: await _getTopFiveMostViewedImagesUseCase(query),
+      photos: await _getTopFiveMostViewedImagesUseCase.excute(query),
     );
     notifyListeners();
   }
