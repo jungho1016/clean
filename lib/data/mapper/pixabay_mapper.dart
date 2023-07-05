@@ -1,6 +1,5 @@
 import 'package:clean/data/dto/pixabay_result_dto.dart';
-
-import '../model/photo.dart';
+import 'package:clean/domain/model/photo.dart';
 
 extension ToPhoto on Hits {
   Photo toPhoto() {

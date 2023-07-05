@@ -1,7 +1,8 @@
-import 'package:clean/ui/main/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import 'main_view_model.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

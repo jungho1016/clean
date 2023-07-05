@@ -1,7 +1,7 @@
-import 'package:clean/ui/main/main_state.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/repository/photo_repository.dart';
+import '../../domain/repository/photo_repository.dart';
+import 'main_state.dart';
 
 class MainViewModel with ChangeNotifier {
   final PhotoRepository _repository;
@@ -17,10 +17,11 @@ class MainViewModel with ChangeNotifier {
     notifyListeners();
 
     final photos = await _repository.getPhoto(query);
+    photos.sort((a, b) => -a.views.compareTo(b.views));
 
     _state = state.copyWith(
       isLoading: false,
-      photos: photos,
+      photos: photos.take(5).toList(),
     );
     notifyListeners();
   }

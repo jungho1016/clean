@@ -1,11 +1,11 @@
-import 'package:clean/data/model/photo.dart';
-import 'package:clean/ui/detail/detail_screen.dart';
-import 'package:clean/ui/main/main_screen.dart';
-import 'package:clean/ui/main/main_view_model.dart';
+import 'package:clean/data/repository/pixabay_repository_imple.dart';
+import 'package:clean/domain/model/photo.dart';
+import 'package:clean/presentation/detail/detail_screen.dart';
+import 'package:clean/presentation/main/main_view_model.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../data/repository/pixabay_repository_imple.dart';
+import '../../presentation/main/main_screen.dart';
 
 // GoRouter configuration
 final router = GoRouter(
