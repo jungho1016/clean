@@ -1,3 +1,4 @@
+import 'package:clean/presentation/main/main_ui_event.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,21 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+        () => context.read<MainViewModel>().eventStream.listen((event) {
+              switch (event) {
+                case ShowSnackBar(:final message):
+                  final snackBar = SnackBar(content: Text(message));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                case EndLoading():
+                  print('로딩 끝');
+              }
+            }));
+  }
 
   @override
   void dispose() {
