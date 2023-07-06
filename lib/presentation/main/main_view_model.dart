@@ -16,7 +16,7 @@ class MainViewModel with ChangeNotifier {
 
     _state = state.copyWith(
       isLoading: false,
-      photos: await _getTopFiveMostViewedImagesUseCase.excute(query),
+      photos: await _getTopFiveMostViewedImagesUseCase.execute(query),
     );
     notifyListeners();
   }

@@ -5,7 +5,7 @@ class GetTopFiveMostViewedImagesUseCase {
   final PhotoRepository _repository;
   GetTopFiveMostViewedImagesUseCase(this._repository);
 
-  Future<List<Photo>> excute(String query) async {
+  Future<List<Photo>> execute(String query) async {
     final photos = await _repository.getPhoto(query);
     photos.sort((a, b) => -a.views.compareTo(b.views));
     return photos.take(5).toList();
